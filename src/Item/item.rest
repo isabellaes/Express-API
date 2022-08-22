@@ -1,0 +1,21 @@
+
+###GET
+GET http://localhost:3000/api/items
+
+###POST
+
+POST http://localhost:3000/api/items
+Content-Type: application/json
+
+{
+    "name": "pizza",
+    "price": 130,
+    "description": "vegan"
+}
+
+###PUT
+
+PUT http://localhost:3000/api/items
+
+###DELETE
+DELETE http://localhost:3000/api/items/1
