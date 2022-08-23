@@ -2,6 +2,10 @@
 ###GET
 GET http://localhost:3000/api/items
 
+###GET
+GET http://localhost:3000/api/items/3
+
+
 ###POST
 
 POST http://localhost:3000/api/items

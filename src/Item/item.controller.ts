@@ -17,6 +17,12 @@ export const getAllItems = async (req: Request, res: Response) => {
   res.status(200).json(items);
 };
 
+export const getItemById = async (req: Request, res: Response) => {
+  const id: number = parseInt(req.params.id);
+  const result: Item | undefined = items.find((item) => item.id == id);
+  res.status(200).json(result);
+};
+
 export const createItem = (req: Request, res: Response) => {
   const id = new Date().valueOf();
   const item = req.body;
