@@ -11,6 +11,8 @@ let items: Item[] = [
   { id: 6, name: "pizza", price: 120, description: "Vegan" },
 ];
 
+/*const fs = require("fs");*/
+
 export const getAllItems = async (req: Request, res: Response) => {
   res.status(200).json(items);
 };
@@ -24,9 +26,36 @@ export const createItem = (req: Request, res: Response) => {
     ...item,
   };
   items.push(newItem);
+  /*const jsonContent = JSON.stringify(items);
+  fs.writeFile("./item.json", jsonContent, "utf8", function () {
+    console.log("The file was saved!");
+  });*/
 
   res.status(201).json(newItem);
 };
 
-export const updateItem = (req: Request, res: Response) => {};
-export const deleteItem = (req: Request, res: Response) => {};
+export const updateItem = (req: Request, res: Response) => {
+  /*const id: number = parseInt(req.params.id);
+
+  const item = items.find((Item) => Item.id == id);
+
+  const newItem = req.body;
+
+  const updateItem: Item = {
+    id,
+    ...newItem,
+  };
+
+  items.push(updateItem);*/
+};
+export const deleteItem = (req: Request, res: Response) => {
+  const id: number = parseInt(req.params.id);
+  const itemToRemove: Item | undefined = items.find((item) => item.id == id);
+  if (itemToRemove != undefined) {
+    const item = items.indexOf(itemToRemove);
+    items.splice(item, 1);
+    res.status(200).json("Deleted succesfully");
+  } else {
+    res.status(404).json("Something went wrong...");
+  }
+};
