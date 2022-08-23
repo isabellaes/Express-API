@@ -14,13 +14,22 @@ let items: Item[] = [
 /*const fs = require("fs");*/
 
 export const getAllItems = async (req: Request, res: Response) => {
-  res.status(200).json(items);
+  if (items != null) {
+    res.status(200).json(items);
+  } else {
+    res.status(404).json("no content");
+  }
 };
 
 export const getItemById = async (req: Request, res: Response) => {
   const id: number = parseInt(req.params.id);
   const result: Item | undefined = items.find((item) => item.id == id);
-  res.status(200).json(result);
+
+  if (result != null) {
+    res.status(200).json(result);
+  } else {
+    res.status(404).json("no content");
+  }
 };
 
 export const createItem = (req: Request, res: Response) => {
@@ -32,10 +41,6 @@ export const createItem = (req: Request, res: Response) => {
     ...item,
   };
   items.push(newItem);
-  /*const jsonContent = JSON.stringify(items);
-  fs.writeFile("./item.json", jsonContent, "utf8", function () {
-    console.log("The file was saved!");
-  });*/
 
   res.status(201).json(newItem);
 };
