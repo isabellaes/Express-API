@@ -16,6 +16,13 @@ Content-Type: application/json
 ###PUT
 
 PUT http://localhost:3000/api/items/2
+Content-Type: application/json
+
+{
+    "name": "kebab",
+    "price": 300,
+    "description": "good"
+}
 
 ###DELETE
 DELETE http://localhost:3000/api/items/1

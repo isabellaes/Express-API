@@ -35,9 +35,9 @@ export const createItem = (req: Request, res: Response) => {
 };
 
 export const updateItem = (req: Request, res: Response) => {
-  /*const id: number = parseInt(req.params.id);
+  const id: number = parseInt(req.params.id);
 
-  const item = items.find((Item) => Item.id == id);
+  const itemIndex = items.findIndex((item: { id: number }) => item.id === id);
 
   const newItem = req.body;
 
@@ -46,7 +46,8 @@ export const updateItem = (req: Request, res: Response) => {
     ...newItem,
   };
 
-  items.push(updateItem);*/
+  items[itemIndex] = updateItem;
+  res.status(201).json(updateItem);
 };
 export const deleteItem = (req: Request, res: Response) => {
   const id: number = parseInt(req.params.id);
