@@ -16,16 +16,16 @@ export const getAllItems = async (req: Request, res: Response) => {
 };
 
 export const createItem = (req: Request, res: Response) => {
-  /*const id = new Date().valueOf();
+  const id = new Date().valueOf();
+  const item = req.body;
+
   const newItem: Item = {
-    id: id,
-    name: req.body.name,
-    price: req.body.price,
-    description: req.body.description,
+    id,
+    ...item,
   };
   items.push(newItem);
 
-  res.status(201).json(newItem);*/
+  res.status(201).json(newItem);
 };
 
 export const updateItem = (req: Request, res: Response) => {};
