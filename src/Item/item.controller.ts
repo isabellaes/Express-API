@@ -17,7 +17,7 @@ export const getAllItems = async (req: Request, res: Response) => {
   if (items != null) {
     res.status(200).json(items);
   } else {
-    res.status(404).json("no content");
+    res.status(404).json("Not found");
   }
 };
 
@@ -28,7 +28,7 @@ export const getItemById = async (req: Request, res: Response) => {
   if (result != null) {
     res.status(200).json(result);
   } else {
-    res.status(404).json("no content");
+    res.status(404).json("Not found");
   }
 };
 
@@ -49,16 +49,19 @@ export const updateItem = (req: Request, res: Response) => {
   const id: number = parseInt(req.params.id);
 
   const itemIndex = items.findIndex((item: { id: number }) => item.id === id);
+  if (itemIndex > 0) {
+    const newItem = req.body;
 
-  const newItem = req.body;
+    const updateItem: Item = {
+      id,
+      ...newItem,
+    };
 
-  const updateItem: Item = {
-    id,
-    ...newItem,
-  };
-
-  items[itemIndex] = updateItem;
-  res.status(201).json(updateItem);
+    items[itemIndex] = updateItem;
+    res.status(201).json(updateItem);
+  } else {
+    res.status(404).json("Something went wrong...");
+  }
 };
 export const deleteItem = (req: Request, res: Response) => {
   const id: number = parseInt(req.params.id);
