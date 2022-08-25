@@ -3,7 +3,7 @@ import { Item } from "./item.interface";
 
 /* SEED DATA */
 let items: Item[] = [
-  { id: 1, name: "pizza", price: 120, description: "Hawai" },
+  { id: 1, name: "pizza", price: 120, description: "Hawaii" },
   { id: 2, name: "pizza", price: 120, description: "Kebab" },
   { id: 3, name: "pizza", price: 120, description: "Calzone" },
   { id: 4, name: "pizza", price: 120, description: "Special" },
