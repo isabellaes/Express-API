@@ -10,6 +10,7 @@ Har en rest fil.
 För att starta projektet
 
 npm install 
+
 npm start
 
 Krav för godkänt:
