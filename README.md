@@ -11,6 +11,8 @@ För att starta projektet
 
 npm install 
 
+tsc
+
 npm start
 
 Krav för godkänt:
