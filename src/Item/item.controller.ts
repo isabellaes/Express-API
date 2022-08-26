@@ -11,8 +11,6 @@ let items: Item[] = [
   { id: 6, name: "pizza", price: 120, description: "Vegan" },
 ];
 
-/*const fs = require("fs");*/
-
 export const getAllItems = async (req: Request, res: Response) => {
   if (items != null) {
     res.status(200).json(items);
